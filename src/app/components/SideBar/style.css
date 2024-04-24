@@ -1,8 +1,7 @@
 .containerSidebar{
     background-color: #0066ff;
     height: 100vh;
-    min-width: 5vw;
-    max-width: 7vw;
+    width: auto;
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
 }
@@ -16,6 +15,9 @@
 
 .ulSidebar > dl {
     padding: 5px;
+    color: white;
+    cursor: pointer;
+
 }
 
 .containerUlSidebar{
@@ -24,4 +26,9 @@
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+.linkSidebar{
+    text-decoration: none;
+    color: white;
 }

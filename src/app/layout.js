@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex",width:"100vw",height:"100vh"}}>
 
         <SideBar />
         {children}
