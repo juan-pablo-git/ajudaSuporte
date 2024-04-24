@@ -3,7 +3,7 @@ import Tabela from "../components/Tabela"
 
 export default ()=>{
     return (
-        <div style={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ margin:"0 auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <Tabela 
                 title={"BOT"}
                 coluns={[{ name: "#", value: "id" }, { name: "Colaborador", value: "colaborador" }, { name: "Setor", value: "setor" }, { name: "Atendente", value: "atendente" }, { name: "Assunto", value: "assunto" }, { name: "Nivel", value: "nivel" }, { name: "Status", value: "status",}, { name: "Info", value: "info" }]}
