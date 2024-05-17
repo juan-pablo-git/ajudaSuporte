@@ -11,7 +11,7 @@ export default () => {
                 { name: "Nivel", value: "nivel" },
                 { name: "Setor", value: "setor" },
                 { name: "Info", value: "info" }]}
-            data={[{ id: 0, nivel:1,setor:"Abatedouro",name:"Vander",info: <IoIosAlert /> }]}
+            data={[{ id: 0, nivel:1,setor:"T.I",name:"Vander Silva",info: <IoIosAlert /> },{ id: 1, nivel:1,setor:"T.I",name:"Clauber Nogueira",info: <IoIosAlert /> },{ id: 2, nivel:2,setor:"T.I",name:"Dev Frabriocio Silva",info: <IoIosAlert /> }]}
         />
     </div>)
 }

@@ -7,7 +7,7 @@ export default () =>{
         <Tabela
             title={"Niveis"}
             coluns={[{ name: "#", value: "id" }, { name: "Nome", value: "name" }, { name: "Info", value: "info" }]}
-            data={[{ id: 0, name: "Vander", info: <IoIosAlert /> }]}
+            data={[{ id: 0, name: "suporte 1", info: <IoIosAlert /> },{ id: 1, name: "suporte 2", info: <IoIosAlert /> }]}
         />
     </div>
     )

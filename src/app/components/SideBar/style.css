@@ -5,16 +5,17 @@
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
 }
+
 .ulSidebar > dl:hover{
     color: black;
     background-color:  #dce0e6 ;
-    padding: 5px;
+    padding: 10px;
 
 
 }
 
 .ulSidebar > dl {
-    padding: 5px;
+    padding: 10px;
     color: white;
     cursor: pointer;
 
