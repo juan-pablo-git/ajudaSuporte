@@ -1,13 +1,15 @@
 import Button from "../Button"
 import Input from "../Input"
 import "./style.css"
-export default ({ title, data, coluns }) => {
+export default ({ title, data, coluns,setModalIsOpen , modalIsOpen }) => {
 
     return (
         <table>
             <thead>
                 <th >
-                    <Button label={"+Adicionar"} />
+                    <Button onClick={()=>{
+                        setModalIsOpen(!modalIsOpen)
+                    }} label={"+Adicionar"} />
                 </th>
                 <th>
                     <Input type="search" placeholder="pesquisar" />
