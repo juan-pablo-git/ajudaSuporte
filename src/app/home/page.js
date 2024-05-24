@@ -25,7 +25,7 @@ export default () => {
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Cetor:  <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                Setor:  <Input style={{ width: "200px", height: "30px" }} type={"select"} >
                                     <option>Teste</option>
                                 </Input>
                             </dl>
