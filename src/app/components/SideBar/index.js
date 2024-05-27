@@ -37,10 +37,10 @@ export default () => {
                     </dl>
                     <dl onClick={() => { router.push("/atendentes") }}>
 
-                        <IoPerson /> atendentes
+                        <IoPerson /> Atendentes
                     </dl>
                     <dl onClick={() => { router.push("/niveis") }}>
-                        <CgPoll /> niveis
+                        <CgPoll /> Níveis
                     </dl>
                 </ul>
             </div>

@@ -7,7 +7,14 @@ import Button from "../components/Button"
 import Input from "../components/Input"
 
 export default () => {
+
     const [modalIsOpen, setModalIsOpen] = useState(0)
+    const [filterIsOpen, setFilterIsOpen] = useState({ isOpen: 0, data: { colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", status: "" } })
+    const [inputsModal, setInputsModal] = useState({ colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", status: "" })
+
+    const openFilter =(value)=>{
+        setFilterIsOpen({...filterIsOpen,isOpen:value})
+    }
 
     return (
         <>
@@ -15,7 +22,8 @@ export default () => {
                 <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "500px" }}>
                     <div style={{ textAlign: "right" }}>
 
-                        <Button color={"erro"} onClick={() => { setModalIsOpen(!modalIsOpen) }} label={"X"} />
+                        <Button color={"erro"} onClick={() => {  setModalIsOpen(!modalIsOpen)
+                            openFilter(0) }} label={"X"} />
                     </div>
                     <div style={{ display: "flex", justifyContent: "start" }}>
                         <ul style={{ display: "flex", flexDirection: "column", alignItems: "end" }}>
@@ -67,7 +75,12 @@ export default () => {
                             </dl>
                         </ul>
                     </div>
-                    <div><Button label={"Adicionar"} /> <Button color={"disable"} label={"Cancelar"} /> </div>
+                    <div>
+                        {filterIsOpen.isOpen ? <Button label={"Filtrar"} /> : <Button label={"Adicionar"} />} <Button color={"disable"} onClick={()=>{
+                            setModalIsOpen(!modalIsOpen)
+                            openFilter(0)
+                        }} label={"Cancelar"} />
+                    </div>
 
                 </div>
             </Modal>
@@ -76,6 +89,7 @@ export default () => {
                     title={"BOT"}
                     modalIsOpen={modalIsOpen}
                     setModalIsOpen={setModalIsOpen}
+                    setFilterIsOpen={openFilter}
                     coluns={[{ name: "#", value: "id" }, { name: "Colaborador", value: "colaborador" }, { name: "Setor", value: "setor" }, { name: "Atendente", value: "atendente" }, { name: "Assunto", value: "assunto" }, { name: "Nivel", value: "nivel" }, { name: "Status", value: "status", }, { name: "Info", value: "info" }]}
                     data={
                         [

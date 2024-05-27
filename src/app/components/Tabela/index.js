@@ -1,13 +1,14 @@
 import Button from "../Button"
 import Input from "../Input"
 import "./style.css"
-export default ({ title, data, coluns,setModalIsOpen , modalIsOpen }) => {
+import { FaFilter } from "react-icons/fa6";
+export default ({ title, data, coluns, setModalIsOpen, modalIsOpen,setFilterIsOpen }) => {
 
     return (
         <table>
             <thead>
                 <th >
-                    <Button onClick={()=>{
+                    <Button onClick={() => {
                         setModalIsOpen(!modalIsOpen)
                     }} label={"+Adicionar"} />
                 </th>
@@ -15,7 +16,13 @@ export default ({ title, data, coluns,setModalIsOpen , modalIsOpen }) => {
                     <Input type="search" placeholder="pesquisar" />
                 </th>
                 <th>
-                    FILTRAR
+                    {
+                        <FaFilter onClick={()=>{
+                            setModalIsOpen(1)
+                            setFilterIsOpen(1)
+                        }} />
+                        
+                    }
                 </th>
             </thead>
             <thead>
