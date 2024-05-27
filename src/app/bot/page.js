@@ -1,24 +1,95 @@
+'use client'
 import { IoIosAlert } from "react-icons/io"
 import Tabela from "../components/Tabela"
+import { useState } from "react"
+import Modal from "../components/Modal"
+import Button from "../components/Button"
+import Input from "../components/Input"
 
-export default ()=>{
+export default () => {
+    const [modalIsOpen, setModalIsOpen] = useState(0)
+
     return (
-        <div style={{ margin:"0 auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <Tabela 
-                title={"BOT"}
-                coluns={[{ name: "#", value: "id" }, { name: "Colaborador", value: "colaborador" }, { name: "Setor", value: "setor" }, { name: "Atendente", value: "atendente" }, { name: "Assunto", value: "assunto" }, { name: "Nivel", value: "nivel" }, { name: "Status", value: "status",}, { name: "Info", value: "info" }]}
-                data={
-                    [
-                        { id: 0, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+        <>
+            <Modal isOpen={modalIsOpen} >
+                <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "500px" }}>
+                    <div style={{ textAlign: "right" }}>
 
-                        { id: 1, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente",info: <IoIosAlert /> },
+                        <Button color={"erro"} onClick={() => { setModalIsOpen(!modalIsOpen) }} label={"X"} />
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "start" }}>
+                        <ul style={{ display: "flex", flexDirection: "column", alignItems: "end" }}>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                Colaborador: <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                    <option>Teste</option>
+                                </Input>
+                            </dl>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                Setor:  <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                    <option>Teste</option>
+                                </Input>
+                            </dl>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                Atendente: <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                    <option>Teste</option>
+                                </Input>
+                            </dl>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
 
-                        { id: 2, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+                                assunto: <Input type={"select"} style={{ width: "200px", height: "30px" }}>
+                                    <option>Teste</option>
+                                </Input>
+                            </dl>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                Problema: <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                    <option>
+                                        TESTE
+                                    </option>
+                                </Input>
+                            </dl>
 
-                        { id: 3, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> }
-                    ]
-                } 
-            />
-        </div>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                <Input placeholder={"Digite a sua descricao:"} style={{ width: "200px", height: "200px" }} type={"textarea"} />
+                            </dl>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                Nivel: <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                    <option>
+                                        TESTE
+                                    </option>
+                                </Input>
+                            </dl>
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                Status : <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                    <option>
+                                        TESTE
+                                    </option>
+                                </Input>
+                            </dl>
+                        </ul>
+                    </div>
+                    <div><Button label={"Adicionar"} /> <Button color={"disable"} label={"Cancelar"} /> </div>
+
+                </div>
+            </Modal>
+            <div style={{ margin: "0 auto", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <Tabela
+                    title={"BOT"}
+                    modalIsOpen={modalIsOpen}
+                    setModalIsOpen={setModalIsOpen}
+                    coluns={[{ name: "#", value: "id" }, { name: "Colaborador", value: "colaborador" }, { name: "Setor", value: "setor" }, { name: "Atendente", value: "atendente" }, { name: "Assunto", value: "assunto" }, { name: "Nivel", value: "nivel" }, { name: "Status", value: "status", }, { name: "Info", value: "info" }]}
+                    data={
+                        [
+                            { id: 0, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+
+                            { id: 1, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+
+                            { id: 2, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+
+                            { id: 3, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> }
+                        ]
+                    }
+                />
+            </div>
+        </>
     )
 }

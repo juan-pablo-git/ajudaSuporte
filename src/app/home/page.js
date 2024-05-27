@@ -8,12 +8,12 @@ import Input from "../components/Input";
 
 
 export default () => {
-    const [modalIsOpen, setModalIsOpen] = useState(1)
+    const [modalIsOpen, setModalIsOpen] = useState(0)
     return (
         <>
             <Modal isOpen={modalIsOpen} >
-                <div style={{ padding: 10, backgroundColor: "white", height: "500px", width: "500px" }}>
-                    <div>
+                <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "500px" }}>
+                    <div style={{textAlign:"right"}}>
 
                         <Button color={"erro"} onClick={() => { setModalIsOpen(!modalIsOpen) }} label={"X"} />
                     </div>
@@ -45,19 +45,29 @@ export default () => {
                                     <option>
                                         TESTE
                                     </option>
-                                    </Input>
+                                </Input>
+                            </dl>
+                            
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                <Input placeholder={"Digite a sua descricao:"} style={{ width: "200px", height: "200px" }} type={"textarea"} />
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Descricao: <Input style={{ width: "200px", height: "20px" }} type={"textarea"} />
+                                Nivel: <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                    <option>
+                                        TESTE
+                                    </option>
+                                </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Nivel: <Input type={"text"} style={{ width: "190px", height: "20px" }} />
-                            </dl>
-                            <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Status : <Input type={"text"} style={{ width: "190px", height: "20px" }} />
+                                Status : <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                    <option>
+                                        TESTE
+                                    </option>
+                                </Input>
                             </dl>
                         </ul>
                     </div>
+                    <div><Button label={"Adicionar"} /> <Button color={"disable"} label={"Cancelar"} /> </div>
 
                 </div>
             </Modal>

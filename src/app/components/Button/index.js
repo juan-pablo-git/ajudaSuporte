@@ -7,6 +7,8 @@ export default ({label,onClick,color})=>{
     }else if(color == "erro"){
         bgColor = tema.color.erro
 
+    }else if(color == "disable"){
+        bgColor = tema.color.disable
     }
     return <button style={{backgroundColor:bgColor}} onClick={onClick} className="button">{label}</button>
 }
