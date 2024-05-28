@@ -9,11 +9,25 @@ import Input from "../components/Input"
 export default () => {
 
     const [modalIsOpen, setModalIsOpen] = useState(0)
+    const [dados, setDados] = useState([
+        { id: 0, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+
+        { id: 1, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+
+        { id: 2, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
+
+        { id: 3, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> }
+    ])
     const [filterIsOpen, setFilterIsOpen] = useState({ isOpen: 0, data: { colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", status: "" } })
     const [inputsModal, setInputsModal] = useState({ colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", status: "" })
 
     const openFilter = (value) => {
         setFilterIsOpen({ ...filterIsOpen, isOpen: value })
+    }
+    const filterTable = (dados) => {
+        let retorno = dados
+
+        console.log(inputsModal)
     }
 
     return (
@@ -31,7 +45,8 @@ export default () => {
                         <ul style={{ display: "flex", flexDirection: "column", alignItems: "end" }}>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
                                 Colaborador: <Input onChange={(e) => {
-                                    console.log(e.target.value)
+                                    setInputsModal({ ...inputsModal, colaborador: e.target.value })
+
                                 }} style={{ width: "200px", height: "30px" }} type={"select"} >
                                     <option value={""}>Selecione um colaborador</option>
                                     <option value={1}>Teste</option>
@@ -40,16 +55,19 @@ export default () => {
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
                                 Setor:  <Input onChange={(e) => {
-                                    console.log(e.target.value)
+                                    setInputsModal({ ...inputsModal, setor: e.target.value })
                                 }} style={{ width: "200px", height: "30px" }} type={"select"} >
-                                    <option>Teste</option>
+                                    <option>Selecione o setor</option>
+                                    <option value={1}>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
                                 Atendente: <Input onChange={(e) => {
-                                    console.log(e.target.value)
+                                    setInputsModal({ ...inputsModal, atendente: e.target.value })
+
                                 }} style={{ width: "200px", height: "30px" }} type={"select"} >
-                                    <option>Teste</option>
+                                    <option>Selecione o atendente</option>
+                                    <option value={1}>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
@@ -86,17 +104,19 @@ export default () => {
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
                                 Status : <Input onChange={(e) => {
-                                    console.log(e.target.value)
+                                    setInputsModal({ ...inputsModal, status: e.target.value })
                                 }} type={"select"} style={{ width: "200px", height: "30px" }} >
                                     <option>
-                                        TESTE
+                                        Selecione o status
                                     </option>
+                                    <option value={0}>Pendente</option>
+                                    <option value={1}>Em atendimento</option>
                                 </Input>
                             </dl>
                         </ul>
                     </div>
                     <div>
-                        {filterIsOpen.isOpen ? <Button label={"Filtrar"} /> : <Button label={"Adicionar"} />} <Button color={"disable"} onClick={() => {
+                        {filterIsOpen.isOpen ? <Button onClick={filterTable} label={"Filtrar"} /> : <Button label={"Adicionar"} />} <Button color={"disable"} onClick={() => {
                             setModalIsOpen(!modalIsOpen)
                             openFilter(0)
                         }} label={"Cancelar"} />
@@ -112,15 +132,7 @@ export default () => {
                     setFilterIsOpen={openFilter}
                     coluns={[{ name: "#", value: "id" }, { name: "Colaborador", value: "colaborador" }, { name: "Setor", value: "setor" }, { name: "Atendente", value: "atendente" }, { name: "Assunto", value: "assunto" }, { name: "Nivel", value: "nivel" }, { name: "Status", value: "status", }, { name: "Info", value: "info" }]}
                     data={
-                        [
-                            { id: 0, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
-
-                            { id: 1, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
-
-                            { id: 2, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
-
-                            { id: 3, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> }
-                        ]
+                        dados
                     }
                 />
             </div>
