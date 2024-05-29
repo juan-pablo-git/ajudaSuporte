@@ -5,10 +5,11 @@ import { useState } from "react"
 import Modal from "../components/Modal"
 import Button from "../components/Button"
 import Input from "../components/Input"
+import "./style.css"
 
 export default () => {
 
-    const [modalIsOpen, setModalIsOpen] = useState(0)
+    const [modalIsOpen, setModalIsOpen] = useState(1)
     const [dados, setDados] = useState([
         { id: 0, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> },
 
@@ -19,7 +20,7 @@ export default () => {
         { id: 3, colaborador: "Vander", atendente: "Valder", setor: "logistica", assunto: "sinconismo", nivel: "suporte 1", status: "pendente", info: <IoIosAlert /> }
     ])
     const [filterIsOpen, setFilterIsOpen] = useState({ isOpen: 0, data: { colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", status: "" } })
-    const [inputsModal, setInputsModal] = useState({ colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", status: "" })
+    const [inputsModal, setInputsModal] = useState({ colaborador: "", setor: "", atendente: "", assunto: "", problema: "", nivel: "", descricao: "", status: "" })
 
     const openFilter = (value) => {
         setFilterIsOpen({ ...filterIsOpen, isOpen: value })
@@ -30,10 +31,14 @@ export default () => {
         console.log(inputsModal)
     }
 
+    const adiconarChamado = (data) => {
+        console.log("inputsModal: ", inputsModal)
+    }
+
     return (
         <>
             <Modal isOpen={modalIsOpen} >
-                <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "500px" }}>
+                <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "auto" }}>
                     <div style={{ textAlign: "right" }}>
 
                         <Button color={"erro"} onClick={() => {
@@ -42,71 +47,103 @@ export default () => {
                         }} label={"X"} />
                     </div>
                     <div style={{ display: "flex", justifyContent: "start" }}>
-                        <ul style={{ display: "flex", flexDirection: "column", alignItems: "end" }}>
+                        <ul style={{ display: "flex", flexDirection: "column" }}>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Colaborador: <Input onChange={(e) => {
+                                <Input onClick={(e) => {
+                                    e.target.style.paddingTop = "50px"
+                                }} onChange={(e) => {
                                     setInputsModal({ ...inputsModal, colaborador: e.target.value })
-
-                                }} style={{ width: "200px", height: "30px" }} type={"select"} >
+                                }} style={{
+                                    width: "400px",
+                                    height: "30px"
+                                }} placeholder={"Colaborador:"} type={"select"} >
                                     <option value={""}>Selecione um colaborador</option>
                                     <option value={1}>Teste</option>
                                     <option value={2}>Teste2</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Setor:  <Input onChange={(e) => {
+                                <Input placeholder={"Setor:"} onChange={(e) => {
                                     setInputsModal({ ...inputsModal, setor: e.target.value })
-                                }} style={{ width: "200px", height: "30px" }} type={"select"} >
+                                }} style={{
+                                    width: "400px",
+                                    height: "30px"
+                                }} type={"select"} >
                                     <option>Selecione o setor</option>
                                     <option value={1}>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Atendente: <Input onChange={(e) => {
+
+                                <Input onChange={(e) => {
                                     setInputsModal({ ...inputsModal, atendente: e.target.value })
 
-                                }} style={{ width: "200px", height: "30px" }} type={"select"} >
+                                }} placeholder={"Atendente:"} style={{
+                                    width: "400px",
+                                    height: "30px"
+                                }} type={"select"} >
                                     <option>Selecione o atendente</option>
                                     <option value={1}>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
+                                <Input onChange={(e) => {
+                                    setInputsModal({ ...inputsModal, assunto: e.target.value })
 
-                                assunto: <Input onChange={(e) => {
-                                    console.log(e.target.value)
-                                }} type={"select"} style={{ width: "200px", height: "30px" }}>
-                                    <option>Teste</option>
+                                }} placeholder={"Assunto:"} type={"select"}
+                                    style={{
+                                        width: "400px",
+                                        height: "30px"
+                                    }}>
+                                    <option>Selecione o assunto</option>
+                                    <option value={1}>Teste</option>
                                 </Input>
                             </dl>
-                            <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Problema: <Input onChange={(e) => {
-                                    console.log(e.target.value)
-                                }} type={"select"} style={{ width: "200px", height: "30px" }} >
-                                    <option>
-                                        TESTE
-                                    </option>
-                                </Input>
-                            </dl>
-
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
                                 <Input onChange={(e) => {
+                                    setInputsModal({ ...inputsModal, problema: e.target.value })
                                     console.log(e.target.value)
-                                }} placeholder={"Digite a sua descricao:"} style={{ width: "200px", height: "200px" }} type={"textarea"} />
+                                }} placeholder={"Problema:"} type={"select"}
+                                    style={{
+                                        width: "400px",
+                                        height: "30px"
+                                    }} >
+                                    <option>Selecione o problema</option>
+
+                                    <option value={1}>
+                                        TESTE
+                                    </option>
+                                </Input>
+                            </dl>
+
+                            <dl style={{ margin: "10px 0px 10px 0px" }}>
+
+                                <Input onChange={(e) => {
+                                    setInputsModal({ ...inputsModal, descricao: e.target.value })
+                                }} placeholder={"Digite a sua descricao:"} style={{ width: "400px", height: "200px" }} type={"textarea"} />
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Nivel: <Input onChange={(e) => {
-                                    console.log(e.target.value)
-                                }} type={"select"} style={{ width: "200px", height: "30px" }} >
-                                    <option>
+
+                                <Input placeholder={"Nivel:"} onChange={(e) => {
+                                    setInputsModal({ ...inputsModal, nivel: e.target.value })
+                                }} type={"select"} style={{
+                                    width: "400px",
+                                    height: "30px"
+                                }} >
+                                    <option>Selecione o nivel</option>
+                                    <option value={1}>
                                         TESTE
                                     </option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Status : <Input onChange={(e) => {
+                                <Input placeholder={"Status:"} onChange={(e) => {
                                     setInputsModal({ ...inputsModal, status: e.target.value })
-                                }} type={"select"} style={{ width: "200px", height: "30px" }} >
-                                    <option>
+                                }} type={"select"} style={{
+                                    width: "400px",
+                                    height: "30px"
+                                }} >
+                                    <option >
                                         Selecione o status
                                     </option>
                                     <option value={0}>Pendente</option>
@@ -116,7 +153,7 @@ export default () => {
                         </ul>
                     </div>
                     <div>
-                        {filterIsOpen.isOpen ? <Button onClick={filterTable} label={"Filtrar"} /> : <Button label={"Adicionar"} />} <Button color={"disable"} onClick={() => {
+                        {filterIsOpen.isOpen ? <Button onClick={filterTable} label={"Filtrar"} /> : <Button onClick={adiconarChamado} label={"Adicionar"} />} <Button color={"disable"} onClick={() => {
                             setModalIsOpen(!modalIsOpen)
                             openFilter(0)
                         }} label={"Cancelar"} />

@@ -16,7 +16,7 @@ export default () => {
 
     const router = useRouter()
 
-    const [condensedSideBar, setCondensedSideBar] = useState(true)
+    const [condensedSideBar, setCondensedSideBar] = useState(false)
 
     return (<>
         <div className="containerSidebar" style={{ display: condensedSideBar == false ? "" : "none" }}>

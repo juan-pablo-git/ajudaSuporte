@@ -12,36 +12,36 @@ export default () => {
     return (
         <>
             <Modal isOpen={modalIsOpen} >
-                <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "500px" }}>
+                <div style={{ padding: 10, backgroundColor: "white", height: "auto", width: "auto" }}>
                     <div style={{textAlign:"right"}}>
 
                         <Button color={"erro"} onClick={() => { setModalIsOpen(!modalIsOpen) }} label={"X"} />
                     </div>
                     <div style={{ display: "flex", justifyContent: "start" }}>
-                        <ul style={{ display: "flex", flexDirection: "column", alignItems: "end" }}>
+                        <ul style={{ display: "flex", flexDirection: "column" }}>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Colaborador: <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                Colaborador: <Input type={"select"} >
                                     <option>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Setor:  <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                Setor:  <Input  type={"select"} >
                                     <option>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Atendente: <Input style={{ width: "200px", height: "30px" }} type={"select"} >
+                                Atendente: <Input  type={"select"} >
                                     <option>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
 
-                                assunto: <Input type={"select"} style={{ width: "200px", height: "30px" }}>
+                                assunto: <Input type={"select"} >
                                     <option>Teste</option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Problema: <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                Problema: <Input type={"select"}  >
                                     <option>
                                         TESTE
                                     </option>
@@ -49,17 +49,17 @@ export default () => {
                             </dl>
                             
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                <Input placeholder={"Digite a sua descricao:"} style={{ width: "200px", height: "200px" }} type={"textarea"} />
+                                <Input placeholder={"Digite a sua descricao:"} style={{ width: "400px", height: "200px" }}  type={"textarea"} />
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Nivel: <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                Nivel: <Input type={"select"}  >
                                     <option>
                                         TESTE
                                     </option>
                                 </Input>
                             </dl>
                             <dl style={{ margin: "10px 0px 10px 0px" }}>
-                                Status : <Input type={"select"} style={{ width: "200px", height: "30px" }} >
+                                Status : <Input type={"select"}  >
                                     <option>
                                         TESTE
                                     </option>
